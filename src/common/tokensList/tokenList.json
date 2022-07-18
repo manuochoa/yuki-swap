@@ -35,15 +35,6 @@
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/complusnetwork/default-token-list/master/src/bsc/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d/logo.png"
     },
-
-    {
-      "name": "WBNB",
-      "selected": true,
-      "symbol": "WBNB",
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "decimals": 18,
-      "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png"
-    },
     {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "chainId": 56,
@@ -84,16 +75,6 @@
     },
     {
       "chainId": 1,
-      "asset": "c60_t0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-      "type": "ERC20",
-      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-      "name": "WETH",
-      "symbol": "WETH",
-      "decimals": 18,
-      "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
-    },
-    {
-      "chainId": 1,
       "asset": "c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F",
       "type": "ERC20",
       "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
@@ -112,6 +93,99 @@
       "symbol": "SUSHI",
       "decimals": 18,
       "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0x6B3595068778DD592e39A122f4f5a5cF09C90fE2/logo.png",
+      "pairs": []
+    }
+  ],
+  "137": [
+    {
+      "chainId": 137,
+      "asset": "c60_t0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "type": "ERC20",
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "MATIC",
+      "symbol": "MATIC",
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/wMatic_32.png",
+      "pairs": []
+    },
+    {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "name": "Tether",
+      "symbol": "USDT",
+      "decimals": 6,
+      "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
+    },
+    {
+      "chainId": 137,
+      "asset": "c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "type": "ERC20",
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "name": "Dai",
+      "symbol": "DAI",
+      "decimals": 18,
+      "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png",
+      "pairs": []
+    }
+  ],
+  "25": [
+    {
+      "chainId": 25,
+      "asset": "c60_t0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "type": "ERC20",
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "CRO",
+      "symbol": "CRO",
+      "decimals": 18,
+      "logoURI": "https://cronoscan.com/token/images/cryptocom_32.png",
+      "pairs": []
+    },
+    {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "name": "Tether",
+      "symbol": "USDT",
+      "decimals": 6,
+      "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
+    },
+    {
+      "chainId": 25,
+      "asset": "c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "type": "ERC20",
+      "address": "0xF2001B145b43032AAF5Ee2884e456CCd805F677D",
+      "name": "Dai",
+      "symbol": "DAI",
+      "decimals": 18,
+      "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png",
+      "pairs": []
+    }
+  ],
+  "43114": [
+    {
+      "chainId": 25,
+      "asset": "c60_t0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "type": "ERC20",
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "AVAX",
+      "symbol": "AVAX",
+      "decimals": 18,
+      "logoURI": "https://cryptologos.cc/logos/avalanche-avax-logo.png",
+      "pairs": []
+    },
+    {
+      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "name": "Tether",
+      "symbol": "USDT",
+      "decimals": 6,
+      "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
+    },
+    {
+      "chainId": 25,
+      "asset": "c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "type": "ERC20",
+      "address": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+      "name": "Dai",
+      "symbol": "DAI",
+      "decimals": 18,
+      "logoURI": "https://assets.trustwalletapp.com/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png",
       "pairs": []
     }
   ]

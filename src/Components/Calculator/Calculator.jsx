@@ -94,13 +94,18 @@ const Calculator = ({
       routerAbi,
       provider
     );
-    let WETH = await routerInstance.WETH();
+    let WETH =
+      Number(chainId) !== 43114
+        ? await routerInstance.WETH()
+        : await routerInstance.WAVAX();
     let inDecimals = tokens[chainId].find(
       (el) => el.address === addressIn
     ).decimals;
     let outDecimals = tokens[chainId].find(
       (el) => el.address === addressOut
     ).decimals;
+
+    console.log(WETH, "WETH");
 
     let path;
 
@@ -148,6 +153,7 @@ const Calculator = ({
   };
 
   const approveToken = async () => {
+    setIsLoading(true);
     try {
       let web3Provider;
 
@@ -169,14 +175,16 @@ const Calculator = ({
         router[chainId],
         "115792089237316195423570985008687907853269984665640564039457584007913129639935"
       );
-
+      setIsLoading(false);
       return receipt;
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
   };
 
   const handleSwap = async () => {
+    setIsLoading(true);
     try {
       console.log("swap");
 
@@ -235,7 +243,10 @@ const Calculator = ({
         signer
       );
 
-      let WETH = await routerInstance.WETH();
+      let WETH =
+        Number(chainId) !== 43114
+          ? await routerInstance.WETH()
+          : await routerInstance.WAVAX();
       let path = !isInputsReverted
         ? [addressIn, addressOut]
         : [addressOut, addressIn];
@@ -292,10 +303,12 @@ const Calculator = ({
 
       let receipt = await tx.wait();
       getBalances();
+      setIsLoading(false);
       return receipt;
     } catch (error) {
       console.log(error, "handleSwap");
     }
+    setIsLoading(false);
   };
 
   const truncate = (value, numDecimalPlaces) =>
@@ -377,6 +390,16 @@ const Calculator = ({
     }
   };
 
+  const getExchangeRate = async () => {
+    let type = !isInputsReverted ? "first" : "second";
+    let rate = await getSwapAmount(type, "1");
+    setExchangeRate(rate);
+    let provider = new ethers.providers.JsonRpcProvider(providerRpc[chainId]);
+    setGasPrice(
+      ethers.utils.formatUnits(await provider.getGasPrice()) * 200000
+    );
+  };
+
   useEffect(() => {
     dropdownHandlerOne({ value: options[0] });
     dropdownHandlerTwo({ value: options[1] });
@@ -387,28 +410,19 @@ const Calculator = ({
   }, [userAddress]);
 
   useEffect(() => {
+    setAddressIn(tokens[chainId][0].address);
+    setAddressOut(tokens[chainId][1].address);
     setOptions(tokens[chainId].map((el) => el.symbol));
     setDropdownOneImg(tokens[chainId][0].logoURI);
     setDropdownTwoImg(tokens[chainId][1].logoURI);
-    setAddressIn(tokens[chainId][0].address);
     setSymbolIn(tokens[chainId][0].symbol);
-    setAddressOut(tokens[chainId][1].address);
     setSymbolOut(tokens[chainId][1].symbol);
+    getExchangeRate();
   }, [chainId]);
 
   useEffect(() => {
-    const getExchangeRate = async () => {
-      let type = !isInputsReverted ? "first" : "second";
-      let rate = await getSwapAmount(type, "1");
-      setExchangeRate(rate);
-      let provider = new ethers.providers.JsonRpcProvider(providerRpc[chainId]);
-      setGasPrice(
-        ethers.utils.formatUnits(await provider.getGasPrice()) * 200000
-      );
-    };
-
     getExchangeRate();
-  }, [addressIn, addressOut, isInputsReverted, chainId]);
+  }, [addressIn, addressOut, isInputsReverted]);
   return (
     <div className={classes["calculator-outer"]}>
       <div className={classes["calculator-wrapper"]}>
@@ -510,7 +524,7 @@ const Calculator = ({
         />
         <div className={classes["calculator-btn"]}>
           <BlueButton
-            disabled={unknownNetwork}
+            disabled={unknownNetwork || isLoading}
             onClick={
               // userAddress ? handleSwap : () => setIsShowWalletModal(true)
               userAddress

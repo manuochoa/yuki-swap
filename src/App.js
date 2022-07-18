@@ -90,9 +90,15 @@ const App = () => {
 
       let id = parseInt(chainId, 16);
 
-      console.log(id);
+      console.log("chainid", id);
 
-      if (Number(chainId) !== 56 && Number(chainId) !== 1) {
+      if (
+        Number(chainId) !== 56 &&
+        Number(chainId) !== 1 &&
+        Number(chainId) !== 137 &&
+        Number(chainId) !== 43114 &&
+        Number(chainId) !== 25
+      ) {
         setUnknownNetwork(true);
       } else {
         setUnknownNetwork(false);
@@ -119,9 +125,7 @@ const App = () => {
       const provider = new WalletConnectProvider({
         rpc: {
           1: "https://mainnet.infura.io/v3/0267a87b8abb49379bf3a5b7c8e2f4d7",
-          4: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           56: "https://bsc-dataseed1.ninicoin.io/",
-          97: "https://data-seed-prebsc-2-s2.binance.org:8545/",
         },
         // chainId: 56,
         infuraId: null,
@@ -174,3 +178,5 @@ const App = () => {
 };
 
 export default App;
+
+// bsc, eth, polygon, cronos and avalanche

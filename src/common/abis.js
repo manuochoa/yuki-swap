@@ -238,6 +238,19 @@ export const routerAbi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "WAVAX",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "address",

@@ -1,0 +1,16 @@
+.binance-dropdown-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.binance-dropdown-wrapper img {
+  height: 30px;
+}
+
+.binance-dropdown-wrapper > div > div:nth-child(1) {
+  padding: 8px 32px 8px 10px;
+}
+
+.binance-dropdown-wrapper .Dropdown-control {
+  padding: 0;
+}

@@ -1,0 +1,22 @@
+.convertation__item-input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.07);
+    border-radius: 8px;
+    height: 52px;
+    outline: none;
+    padding: 0 75px 0 300px;
+    color: #2E3031;
+}
+
+.convertation__item-input:focus {
+    border: 2px solid #6EE5D6;
+    box-shadow: 0 0 0 3px #E7E7E7;
+}
+
+@media (max-width: 370px) {
+    .convertation__item-input {
+        font-size: 14px;
+    }
+}

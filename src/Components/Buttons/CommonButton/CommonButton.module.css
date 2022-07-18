@@ -1,0 +1,27 @@
+.common-btn {
+    font-weight: 700;
+    font-size: 16px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px 30px;
+    color: #2E3031;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.4s ease;
+    outline: none;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.common-btn:hover,
+.common-btn:focus {
+    background: #fff;
+    color:  #6EE5D6;
+
+}
+
+@media (max-width: 768px) {
+    .common-btn {
+        padding: 10px 15px;
+    }
+}

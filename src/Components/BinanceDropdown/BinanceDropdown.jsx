@@ -27,9 +27,10 @@ const BinanceDropdown = ({ unknownNetwork, chainId }) => {
   const changeChain = async (e) => {
     let token = Object.values(options).findIndex((el) => el === e.value);
     let chain = Object.keys(options)[token];
-    console.log(token, toHex(chain));
+    console.log(chainId, chain, token, toHex(chain));
 
-    if (chainId !== Number(chain)) {
+    if (Number(chainId) !== Number(chain)) {
+      console.log("change chain");
       await window.ethereum.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: toHex(chain) }],

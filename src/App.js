@@ -24,10 +24,11 @@ const App = () => {
     try {
       const provider = new WalletConnectProvider({
         rpc: {
-          1: "https://mainnet.infura.io/v3/0267a87b8abb49379bf3a5b7c8e2f4d7",
-          4: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+          1: "https://cloudflare-eth.com/",
+          25: "https://evm-cronos.crypto.org/",
           56: "https://bsc-dataseed1.ninicoin.io/",
-          97: "https://data-seed-prebsc-2-s2.binance.org:8545/",
+          137: "https://polygon-rpc.com/",
+          43114: "https://api.avax.network/ext/bc/C/rpc",
         },
         // chainId: 56,
         infuraId: null,
@@ -124,8 +125,11 @@ const App = () => {
     if (wallet === "WALLET_CONNECT") {
       const provider = new WalletConnectProvider({
         rpc: {
-          1: "https://mainnet.infura.io/v3/0267a87b8abb49379bf3a5b7c8e2f4d7",
+          1: "https://cloudflare-eth.com/",
+          25: "https://evm-cronos.crypto.org/",
           56: "https://bsc-dataseed1.ninicoin.io/",
+          137: "https://polygon-rpc.com/",
+          43114: "https://api.avax.network/ext/bc/C/rpc",
         },
         // chainId: 56,
         infuraId: null,

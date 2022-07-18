@@ -14,6 +14,7 @@ const App = () => {
   const [wallet, setWallet] = useState("");
   const [walletProvider, setWalletProvider] = useState("");
   const [isShowWalletModal, setIsShowWalletModal] = useState(false);
+  const [unknownNetwork, setUnknownNetwork] = useState(false);
 
   const handleIsShowWalletModal = () => {
     setIsShowWalletModal(!isShowWalletModal);
@@ -39,7 +40,7 @@ const App = () => {
       const chainId = await web3.eth.getChainId();
       const accounts = await web3.eth.getAccounts();
 
-      console.log("chainId");
+      console.log(chainId, "chainId");
 
       setChainId(chainId);
       setUserAddress(accounts[0]);
@@ -90,7 +91,14 @@ const App = () => {
       let id = parseInt(chainId, 16);
 
       console.log(id);
-      setChainId(id);
+
+      if (Number(chainId) !== 56 && Number(chainId) !== 1) {
+        setUnknownNetwork(true);
+      } else {
+        setUnknownNetwork(false);
+        setChainId(id);
+        console.log("here");
+      }
 
       window.ethereum.on("accountsChanged", function (accounts) {
         setUserAddress(accounts[0]);
@@ -148,6 +156,7 @@ const App = () => {
             path="/"
             element={
               <Home
+                unknownNetwork={unknownNetwork}
                 wallet={wallet}
                 walletProvider={walletProvider}
                 disconnectWallet={disconnectWallet}

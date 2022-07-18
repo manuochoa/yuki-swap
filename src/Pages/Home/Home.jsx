@@ -10,6 +10,7 @@ const Home = ({
   userAddress,
   showModal,
   chainId,
+  unknownNetwork,
 }) => {
   return (
     <Layout
@@ -19,6 +20,7 @@ const Home = ({
       buttonText="Connect Wallet"
     >
       <Calculator
+        unknownNetwork={unknownNetwork}
         chainId={chainId}
         wallet={wallet}
         walletProvider={walletProvider}

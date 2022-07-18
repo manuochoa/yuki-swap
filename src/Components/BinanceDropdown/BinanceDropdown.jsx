@@ -4,11 +4,12 @@ import binanceLogo from "../../Assets/Images/binance-logo.png";
 import Dropdown from "react-dropdown";
 
 const logos = {
+  0: "https://e7.pngegg.com/pngimages/1022/1019/png-clipart-question-mark-logo-question-mark-in-circle-icons-logos-emojis-question-marks.png",
   1: "https://ethereum.org/static/6b935ac0e6194247347855dc3d328e83/81d9f/eth-diamond-black.webp",
   56: "https://crypto-central.io/library/uploads/BNB-300x300.png",
 };
 
-const BinanceDropdown = ({ chainId }) => {
+const BinanceDropdown = ({ unknownNetwork, chainId }) => {
   const options = { 1: "Ethereum Mainnet", 56: "Binance Smart Chain" };
   function toHex(d) {
     return "0x" + Number(d).toString(16);
@@ -28,11 +29,11 @@ const BinanceDropdown = ({ chainId }) => {
   };
   return (
     <div className={classes["binance-dropdown-wrapper"]}>
-      <img src={logos[chainId]} alt="chain logo" />
+      <img src={unknownNetwork ? logos[0] : logos[chainId]} alt="chain logo" />
       {/* <h3>{options[chainId]}</h3> */}
       <Dropdown
         options={Object.values(options)}
-        value={options[chainId]}
+        value={unknownNetwork ? "Unknown Network" : options[chainId]}
         onChange={(e) => changeChain(e)}
       />
     </div>

@@ -20,6 +20,7 @@ const Calculator = ({
   setIsShowWalletModal,
   userAddress,
   chainId,
+  unknownNetwork,
 }) => {
   const [options, setOptions] = useState(
     tokens[chainId].map((el) => el.symbol)
@@ -414,7 +415,10 @@ const Calculator = ({
         <div className={classes["calculator-top"]}>
           <p className={classes["calculator-top__left"]}>Yuki Swap</p>
           <div className={classes["calculator-top__right"]}>
-            <BinanceDropdown chainId={chainId} />
+            <BinanceDropdown
+              unknownNetwork={unknownNetwork}
+              chainId={chainId}
+            />
           </div>
         </div>
         <div className={classes["calculator-convertation"]}>
@@ -506,6 +510,7 @@ const Calculator = ({
         />
         <div className={classes["calculator-btn"]}>
           <BlueButton
+            disabled={unknownNetwork}
             onClick={
               // userAddress ? handleSwap : () => setIsShowWalletModal(true)
               userAddress

@@ -1,17 +1,24 @@
 .blue-btn {
-    font-family: 'ChunkFive';
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    padding: 16px;
-    color: #fff;
-    background: #6EE5D6;
-    cursor: pointer;
-    transition: 0.4s ease;
-    outline: none;
+  font-family: "ChunkFive";
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  color: #fff;
+  background: #6ee5d6;
+  cursor: pointer;
+  transition: 0.4s ease;
+  outline: none;
+}
+.blue-btn:disabled {
+  opacity: 0.5;
+}
+.blue-btn:disabled:hover {
+  background: #6ee5d6;
+  cursor: initial;
 }
 
-.blue-btn:hover, 
+.blue-btn:hover,
 .blue-btn:focus {
-    background: #6ee5d6a6;
+  background: #6ee5d6a6;
 }

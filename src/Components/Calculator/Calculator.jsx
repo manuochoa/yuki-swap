@@ -407,7 +407,7 @@ const Calculator = ({
     };
 
     getExchangeRate();
-  }, [addressIn, addressOut, isInputsReverted]);
+  }, [addressIn, addressOut, isInputsReverted, chainId]);
   return (
     <div className={classes["calculator-outer"]}>
       <div className={classes["calculator-wrapper"]}>
